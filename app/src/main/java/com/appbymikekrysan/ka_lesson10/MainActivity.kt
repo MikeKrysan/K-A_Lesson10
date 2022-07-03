@@ -1,10 +1,9 @@
 package com.appbymikekrysan.ka_lesson10
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import com.appbymikekrysan.ka_lesson10.constance.Constance
 import com.appbymikekrysan.ka_lesson10.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,24 +16,44 @@ class MainActivity : AppCompatActivity() {
         setContentView(bindingClass.root)
 
         bindingClass.btResult.setOnClickListener {
-            val resultValue = bindingClass.edValue.text.toString().toInt()
+            val resultValue = bindingClass.edValue.text.toString()
             when(resultValue) {
-                in 0..1000 ->  {
+                Constance.ENGINEER->  {
                     bindingClass.tvResult.visibility = View.VISIBLE
-                    bindingClass.tvResult.text = "Вы начинающий блогер"
+                    val tempText = "Получите ваши ${Constance.ENGINEER_SALARY}"
+                    (bindingClass.tvResult.text) = if(bindingClass.edPassword.text.toString() == Constance.ENGINEER_PASSWORD){
+                        tempText
+                    } else {
+                        "Неверный пароль"
+                    }
                 }
-                in 1000..100000 -> {
+                Constance.CLEANER -> {
                     bindingClass.tvResult.visibility = View.VISIBLE
-                    bindingClass.tvResult.text = "Вы средний блогер"
+                    val tempText = "Получите ваши ${Constance.CLEANER_SALARY}"
+                    (bindingClass.tvResult.text) = if(bindingClass.edPassword.text.toString() == Constance.CLEANER_PASSWORD){
+                        tempText
+                    } else {
+                        "Неверный пароль"
+                    }
                 }
+
+                Constance.DIRECTOR -> {
+                    bindingClass.tvResult.visibility = View.VISIBLE
+                    val tempText = "Получите ваши ${Constance.DIRECTOR_SALARY}"
+                    (bindingClass.tvResult.text) = if(bindingClass.edPassword.text.toString() == Constance.DIRECTOR_PASSWORD){
+                        tempText
+                    } else {
+                        "Неверный пароль"
+                    }
+                }
+
                     else -> {
                         bindingClass.tvResult.visibility = View.VISIBLE
-                        bindingClass.tvResult.text = "Вы суперзвезда!"
+                        bindingClass.tvResult.text = "Нет такого работника"
                     }
             }
 
         }
-
 
     }
 }
