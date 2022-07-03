@@ -50,7 +50,20 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Введите ваш код"
-        android:inputType="number"
+        android:inputType="numberPassword"
         app:layout_constraintStart_toStartOf="@+id/edValue"
         app:layout_constraintTop_toBottomOf="@+id/edValue" />
+
+    <ImageView
+        android:id="@+id/imPhoto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/edValue"
+        app:layout_constraintEnd_toEndOf="@+id/edValue"
+        app:layout_constraintStart_toStartOf="@+id/edValue"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/dulia" />
 </androidx.constraintlayout.widget.ConstraintLayout>
